@@ -1,4 +1,3 @@
-#include "Memory/InclusionesMP.h"
 #include "Communication/Socket.h"
 #include <json/json.h>
 #include "Memory/MemoryPool.h"
@@ -42,14 +41,16 @@ int main(){
 
 
     VariableManager::getInstance();
-    Socket::listen();
-    std::cout<<MemoryPool::getInstance()->ObjectCount<<std::endl;
-    Node* node = VariableManager::getInstance()->searchNode("num1");
-    std::cout<< *(int*)node->getPtr()<<std::endl;
-    VariableManager::getInstance()->endScope();
+    Socket::listen();  //Está pendiente de envios.
+    std::cout<<MemoryPool::getInstance()->ObjectCount<<std::endl; //si le llega una variable, automaticamente se guarda en el MemoryPool y el scope
+                                                                  //Imprime el número de objetos guardados en el MemoryPool
+
+    Node* node = VariableManager::getInstance()->searchNode("num1"); //Devuelve el nodo de la variable con ese nombre
+    std::cout<< *(int*)node->getPtr()<<std::endl; //Printea el value del nodo
+    VariableManager::getInstance()->endScope();  //Elimina las variables en el scope
     Node* node2 = VariableManager::getInstance()->searchNode("num1");
-    if (!node2)
+    if (!node2) //Devuleve un nullptr porque ya no existe un nodo con ese nombre de variable
         std::cout<<"no hay"<<std::endl;
-    std::cout<<MemoryPool::getInstance()->ObjectCount<<std::endl;
+    std::cout<<MemoryPool::getInstance()->ObjectCount<<std::endl; //Printea el número de objetos en el MemoryPool.
     return 0;
 }

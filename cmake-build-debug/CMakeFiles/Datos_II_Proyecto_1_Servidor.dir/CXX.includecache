@@ -14,7 +14,7 @@ json/writer.h
 VariableManager.h
 ../Communication/VariableManager.h
 
-../Memory/InclusionesMP.h
+../Memory/MemoryBlock.h
 stdlib.h
 -
 stdio.h
@@ -28,19 +28,39 @@ iostream
 fstream
 -
 
-../Memory/MemoryBlock.h
-InclusionesMP.h
-../Memory/InclusionesMP.h
-
 ../Memory/MemoryNode.h
 MemoryBlock.h
 ../Memory/MemoryBlock.h
+stdlib.h
+-
+stdio.h
+-
+math.h
+-
+assert.h
+-
+iostream
+-
+fstream
+-
 
 ../Memory/MemoryPool.h
 MemoryBlock.h
 ../Memory/MemoryBlock.h
 MemoryNode.h
 ../Memory/MemoryNode.h
+stdlib.h
+-
+stdio.h
+-
+math.h
+-
+assert.h
+-
+iostream
+-
+fstream
+-
 
 ../Scope/Node.h
 string
@@ -94,7 +114,7 @@ json/writer.h
 VariableManager.h
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Communication/VariableManager.h
 
-/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/InclusionesMP.h
+/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryBlock.h
 stdlib.h
 -
 stdio.h
@@ -108,19 +128,25 @@ iostream
 fstream
 -
 
-/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryBlock.h
-InclusionesMP.h
-/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/InclusionesMP.h
-
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryNode.h
 MemoryBlock.h
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryBlock.h
+stdlib.h
+-
+stdio.h
+-
+math.h
+-
+assert.h
+-
+iostream
+-
+fstream
+-
 
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.cpp
 cstring
 -
-InclusionesMP.h
-/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/InclusionesMP.h
 MemoryNode.h
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryNode.h
 MemoryPool.h
@@ -131,6 +157,18 @@ MemoryBlock.h
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryBlock.h
 MemoryNode.h
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryNode.h
+stdlib.h
+-
+stdio.h
+-
+math.h
+-
+assert.h
+-
+iostream
+-
+fstream
+-
 
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Scope/Node.h
 string
@@ -167,8 +205,6 @@ Communication/Socket.h
 -
 
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/main.cpp
-Memory/InclusionesMP.h
-/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/InclusionesMP.h
 Communication/Socket.h
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Communication/Socket.h
 json/json.h

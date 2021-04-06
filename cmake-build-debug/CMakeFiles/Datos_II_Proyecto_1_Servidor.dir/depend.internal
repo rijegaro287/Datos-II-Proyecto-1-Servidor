@@ -3,7 +3,6 @@
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.o
  ../Communication/Socket.h
- ../Memory/InclusionesMP.h
  ../Memory/MemoryBlock.h
  ../Memory/MemoryNode.h
  ../Memory/MemoryPool.h
@@ -22,13 +21,11 @@ CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.o
  /home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/include/json/version.h
  /home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/include/json/writer.h
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.o
- /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/InclusionesMP.h
  /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryBlock.h
  /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryNode.h
  /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.cpp
  /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.h
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.o
- ../Memory/InclusionesMP.h
  ../Memory/MemoryBlock.h
  ../Memory/MemoryNode.h
  ../Memory/MemoryPool.h
@@ -37,7 +34,6 @@ CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.o
  /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Scope/Scope.h
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.o
  ../Communication/Socket.h
- ../Memory/InclusionesMP.h
  ../Memory/MemoryBlock.h
  ../Memory/MemoryNode.h
  ../Memory/MemoryPool.h
@@ -56,7 +52,6 @@ CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.o
  /home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/include/json/writer.h
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.o
  /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Communication/Socket.h
- /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/InclusionesMP.h
  /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryBlock.h
  /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryNode.h
  /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.h
