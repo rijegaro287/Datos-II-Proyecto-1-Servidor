@@ -1,0 +1,3 @@
+/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles/Datos_II_Proyecto_1_Servidor.dir

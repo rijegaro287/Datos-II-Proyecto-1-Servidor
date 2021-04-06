@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Datos_II_Proyecto_1_Servidor"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\vcpk\;CMake Files\..\..\vcpk\vcpkg\;CMake Files\..\..\vcpk\vcpkg\scripts\;CMake Files\..\..\vcpk\vcpkg\scripts\buildsystems\;CMake Files\..\..\vcpk\vcpkg\installed\;CMake Files\..\..\vcpk\vcpkg\installed\x64-linux\;CMake Files\..\..\vcpk\vcpkg\installed\x64-linux\share\;CMake Files\..\..\vcpk\vcpkg\installed\x64-linux\share\jsoncpp\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Datos_II_Proyecto_1_Servidor">
+				<Option output="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Datos_II_Proyecto_1_Servidor" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/."/>
+					<Add directory="/home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 Datos_II_Proyecto_1_Servidor"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Datos_II_Proyecto_1_Servidor/fast">
+				<Option output="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Datos_II_Proyecto_1_Servidor" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/."/>
+					<Add directory="/home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 Datos_II_Proyecto_1_Servidor/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Communication/Socket.cpp">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Communication/Socket.h">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryBlock.h">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryNode.h">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.cpp">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.h">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Scope/Scope.cpp">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Scope/Scope.h">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/VariableManager.cpp">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/VariableManager.h">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/main.cpp">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_reader.cpp.o">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_value.cpp.o">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_writer.cpp.o">
+			<Option target="Datos_II_Proyecto_1_Servidor"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/../../vcpk/vcpkg/scripts/buildsystems/vcpkg.cmake">
+			<Option virtualFolder="CMake Files\..\..\vcpk\vcpkg\scripts\buildsystems\"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/../../vcpk/vcpkg/installed/x64-linux/share/jsoncpp/jsoncppConfig-debug.cmake">
+			<Option virtualFolder="CMake Files\..\..\vcpk\vcpkg\installed\x64-linux\share\jsoncpp\"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/../../vcpk/vcpkg/installed/x64-linux/share/jsoncpp/jsoncppConfig-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\vcpk\vcpkg\installed\x64-linux\share\jsoncpp\"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/../../vcpk/vcpkg/installed/x64-linux/share/jsoncpp/jsoncppConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\vcpk\vcpkg\installed\x64-linux\share\jsoncpp\"/>
+		</Unit>
+		<Unit filename="/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/../../vcpk/vcpkg/installed/x64-linux/share/jsoncpp/jsoncppConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\vcpk\vcpkg\installed\x64-linux\share\jsoncpp\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
