@@ -10,7 +10,7 @@
 
 class Socket {
     private:
-        static const int PORT = 2508; //Port. 25 del cumple de Yordi y 08 del cumple de Ricardo. UwU
+        static const int PORT = 8080; //Port. 25 del cumple de Yordi y 08 del cumple de Ricardo. UwU
     public:
     static void listen();
     static void send(std::string);

@@ -107,7 +107,7 @@ void Socket::send(std::string jsonString) {
                 break;
             }
         }
-        printf("READ: %s\n", buff);
+        std::cout << buff << std::endl;
     }
 
 std::string Socket::jsonToString(Json::Value jsonObject) {

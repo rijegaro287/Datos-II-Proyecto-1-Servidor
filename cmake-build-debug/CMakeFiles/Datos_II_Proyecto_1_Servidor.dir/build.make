@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/yordi/Documentos/clion-2020.3.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/rijegaro/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7148.70/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/yordi/Documentos/clion-2020.3.2/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/rijegaro/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7148.70/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor
+CMAKE_SOURCE_DIR = /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug
+CMAKE_BINARY_DIR = /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/depend.make
@@ -79,68 +79,81 @@ include CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/flags.make
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.o: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/flags.make
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.o: ../Memory/MemoryPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.o -c /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.o -c /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.cpp
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.cpp > CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.cpp > CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.i
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.cpp -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Memory/MemoryPool.cpp -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.s
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.o: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/flags.make
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.o: ../Scope/Scope.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.o -c /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Scope/Scope.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.o -c /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Scope/Scope.cpp
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Scope/Scope.cpp > CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Scope/Scope.cpp > CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.i
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Scope/Scope.cpp -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Scope/Scope.cpp -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.s
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.o: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/flags.make
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.o: ../VariableManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.o -c /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/VariableManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.o -c /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/VariableManager.cpp
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/VariableManager.cpp > CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/VariableManager.cpp > CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.i
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/VariableManager.cpp -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/VariableManager.cpp -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.s
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.o: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/flags.make
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.o: ../Communication/Socket.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.o -c /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Communication/Socket.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.o -c /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Communication/Socket.cpp
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Communication/Socket.cpp > CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Communication/Socket.cpp > CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.i
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Communication/Socket.cpp -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Communication/Socket.cpp -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.s
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.o: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/flags.make
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.o -c /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.o -c /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/main.cpp
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/main.cpp > CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/main.cpp > CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.i
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/main.cpp -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/main.cpp -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.s
+
+CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.o: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/flags.make
+CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.o: ../Communication/HTTPServer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.o -c /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Communication/HTTPServer.cpp
+
+CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Communication/HTTPServer.cpp > CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.i
+
+CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/Communication/HTTPServer.cpp -o CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.s
 
 # Object files for target Datos_II_Proyecto_1_Servidor
 Datos_II_Proyecto_1_Servidor_OBJECTS = \
@@ -148,26 +161,29 @@ Datos_II_Proyecto_1_Servidor_OBJECTS = \
 "CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.o" \
 "CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.o" \
 "CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.o" \
-"CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.o"
+"CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.o" \
+"CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.o"
 
 # External object files for target Datos_II_Proyecto_1_Servidor
 Datos_II_Proyecto_1_Servidor_EXTERNAL_OBJECTS = \
-"/home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_reader.cpp.o" \
-"/home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_value.cpp.o" \
-"/home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_writer.cpp.o"
+"/home/rijegaro/Descargas/vcpkg/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_reader.cpp.o" \
+"/home/rijegaro/Descargas/vcpkg/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_value.cpp.o" \
+"/home/rijegaro/Descargas/vcpkg/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_writer.cpp.o"
 
 Datos_II_Proyecto_1_Servidor: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Memory/MemoryPool.cpp.o
 Datos_II_Proyecto_1_Servidor: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Scope/Scope.cpp.o
 Datos_II_Proyecto_1_Servidor: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/VariableManager.cpp.o
 Datos_II_Proyecto_1_Servidor: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/Socket.cpp.o
 Datos_II_Proyecto_1_Servidor: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/main.cpp.o
-Datos_II_Proyecto_1_Servidor: /home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_reader.cpp.o
-Datos_II_Proyecto_1_Servidor: /home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_value.cpp.o
-Datos_II_Proyecto_1_Servidor: /home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_writer.cpp.o
+Datos_II_Proyecto_1_Servidor: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/Communication/HTTPServer.cpp.o
+Datos_II_Proyecto_1_Servidor: /home/rijegaro/Descargas/vcpkg/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_reader.cpp.o
+Datos_II_Proyecto_1_Servidor: /home/rijegaro/Descargas/vcpkg/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_value.cpp.o
+Datos_II_Proyecto_1_Servidor: /home/rijegaro/Descargas/vcpkg/vcpkg/installed/x64-linux/debug/lib/objects-Debug/jsoncpp_object/json_writer.cpp.o
 Datos_II_Proyecto_1_Servidor: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/build.make
-Datos_II_Proyecto_1_Servidor: /home/yordi/Documentos/vcpk/vcpkg/installed/x64-linux/debug/lib/libjsoncpp.a
+Datos_II_Proyecto_1_Servidor: /home/rijegaro/Descargas/vcpkg/vcpkg/installed/x64-linux/debug/lib/libjsoncpp.a
+Datos_II_Proyecto_1_Servidor: /usr/local/lib/x86_64-linux-gnu/libpistache.so
 Datos_II_Proyecto_1_Servidor: CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Datos_II_Proyecto_1_Servidor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Datos_II_Proyecto_1_Servidor"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -180,6 +196,6 @@ CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/clean:
 .PHONY : CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/clean
 
 CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/depend:
-	cd /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug/CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Datos_II_Proyecto_1_Servidor.dir/depend
 

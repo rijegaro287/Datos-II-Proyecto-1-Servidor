@@ -1,4 +1,4 @@
-/home/yordi/Documentos/clion-2020.3.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=/home/yordi/Documentos/vcpk/vcpkg/scripts/buildsystems/vcpkg.cmake -G "CodeBlocks - Unix Makefiles" /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor
+/home/rijegaro/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7148.70/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=/home/rijegaro/Descargas/vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake -G "CodeBlocks - Unix Makefiles" /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/cmake-build-debug
+-- Build files have been written to: /home/rijegaro/Escritorio/Datos-II-Proyecto-1-Servidor/cmake-build-debug

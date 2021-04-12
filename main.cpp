@@ -2,6 +2,7 @@
 #include <json/json.h>
 #include "Memory/MemoryPool.h"
 #include "VariableManager.h"
+#include "Communication/HTTPServer.h"
 
 
 using namespace std;
@@ -40,7 +41,7 @@ int main(){
 //    std::cout<<*(int*)(node->getPtr())<<std::endl;
 
 
-    VariableManager::getInstance();
+/*    VariableManager::getInstance();
     Socket::listen();  //Está pendiente de envios.
     std::cout<<MemoryPool::getInstance()->ObjectCount<<std::endl; //si le llega una variable, automaticamente se guarda en el MemoryPool y el scope
                                                                   //Imprime el número de objetos guardados en el MemoryPool
@@ -52,5 +53,7 @@ int main(){
     if (!node2) //Devuleve un nullptr porque ya no existe un nodo con ese nombre de variable
         std::cout<<"no hay"<<std::endl;
     std::cout<<MemoryPool::getInstance()->ObjectCount<<std::endl; //Printea el número de objetos en el MemoryPool.
-    return 0;
+    return 0;*/
+
+    HTTPServer *mserver = HTTPServer::createServer(9080);
 }
