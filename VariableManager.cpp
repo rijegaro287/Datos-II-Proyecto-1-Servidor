@@ -37,22 +37,35 @@ void VariableManager::add(void* ptr, std::string dataType,std::string varName) {
     list->add(ptr, dataType, varName);
 }
 
+void VariableManager::addStruct(void * ptr, std::string dataType, std::string name, std::string structName) {
+    Scope* list = scopes.front();
+    list->addStruct(ptr, dataType, name, structName);
+}
+
+void VariableManager::addPointer(void *ptr, std::string dataType, std::string name, std::string pointerType) {
+    Scope* list = scopes.front();
+    list->addPointer(ptr, dataType, name, pointerType);
+}
+
 /*
  * Elimina el scope más reciente
  */
-void VariableManager::endScope(){
+std::string VariableManager::endScope(){
     Scope* lastScope = scopes.front();
-    lastScope->freeAllMemory();
     if (lastScope != mainScope){
+        lastScope->freeAllMemory();
         delete lastScope;
         scopes.pop_front();
+        return "";
+    }else{
+        return "Scope Error";
     }
 }
 
 /*
  * Crea un Scope
  */
-void VariableManager::newScope() {
+std::string VariableManager::newScope() {
     Scope* list = new Scope();
     scopes.push_front(list);
 }
@@ -77,48 +90,35 @@ Node* VariableManager::searchNode(std::string varName) {
 
 
 /*
- * Gestiona lo que recibe el socket. Recibe objetos Json y
- * los añade a un scope. De momento crea variables.
- * Falta:
- *      -Guardar datos tipo long.
- *      -Gestionar pedidos de variables existentes.
- *      -Gestionar pedidos de creación y cierre de scopes.
- *      -Gestionar pedidos de creacion de punteros y structs.
+ * Crea variables de referencia y datos primitivos
+ * Recibe un string de un json con las caracteristicas
+ * de la variable.
  */
 std::string VariableManager::createVariable(std::string jsonString) {
     Json::Value jsonObject = stringToJson(jsonString);
 
     std::string name = jsonObject.get("nombre", "noName").asString();
     std::string dataType = jsonObject.get("tipoDeDato", "typeError").asString();
-    int memorySize = jsonObject.get("espacioEnMemoriaDeTipoDeReferencia", "typeError").asInt();
 
     void* ptr;
     //Verifica si la variable es un puntero
     if(dataType == "referencia"){
         std::string pointerType = jsonObject.get("tipoDeReferencia", "typeError").asString();
-        void *IDEpointer = MemoryPool::getInstance()->GetMemory(memorySize);
         ptr = MemoryPool::getInstance()->GetMemory(4);
-        *(void**)ptr = IDEpointer;
-
+        void* pVoid;
+        *((void**)ptr) = pVoid;
         addPointer(ptr,dataType, name, pointerType);
     }else {
         //Asigna al valor un puntero disponible
-        ptr = assignPointer(dataType, stringToJson(jsonString));
+        ptr = setVariableValueToMemomery(dataType, stringToJson(jsonString));
+        add(ptr,dataType, name);
     }
 
-    add(ptr,dataType, name);
-
+    //Devulve dirección
     Json::Value jsonVariable;
     uintptr_t addr = reinterpret_cast<uintptr_t>(ptr);
     jsonVariable["direccion"] = addr;
     return jsonToString(jsonVariable);
-}
-
-std::string VariableManager::jsonToString(Json::Value jsonObject) {
-    Json::FastWriter writer;
-    std::string jsonString = writer.write(jsonObject);
-    std::cout << jsonString << std::endl;
-    return jsonString;
 }
 
 std::string VariableManager::returnVariableValue(std::string jsonString) {
@@ -130,41 +130,104 @@ std::string VariableManager::returnVariableValue(std::string jsonString) {
         return "Variable Value Error";
     }
     Json::Value jsonVariable;
-    jsonVariable["type"] = variableNode->getVariableType();
+    jsonVariable["tipoDeDato"] = variableNode->getVariableType();
     uintptr_t addr = reinterpret_cast<uintptr_t>(variableNode->getPointer());
-    std::cout << addr << std::endl;
     jsonVariable["direccion"] = addr;
-    if(variableNode->getVariableType() == "int"){
-        int* p =(int*) variableNode->getPointer();
-        jsonVariable["value"] = *p;
-    }else if (variableNode->getVariableType() == "char"){
-        char* p =(char*) variableNode->getPointer();
-        jsonVariable["value"] = *p;
-    }else if (variableNode->getVariableType() == "long"){
-        long* p =(long*) variableNode->getPointer();
-        jsonVariable["value"] = *p;
-    }else if (variableNode->getVariableType() == "float"){
-        float* p =(float*) variableNode->getPointer();
-        jsonVariable["value"] = *p;
-    }else if (variableNode->getVariableType() == "double"){
-        double* p =(double*) variableNode->getPointer();
-        jsonVariable["value"] = *p;
-    }
+
+    jsonVariable = getPointerValue(jsonVariable, variableNode->getVariableType(), variableNode->getPointer());
+
     std::cout << jsonVariable << std:: endl;
     return jsonToString(jsonVariable);
 }
 
-Json::Value VariableManager::stringToJson(std::string jsonString) {
-    Json::Reader reader;
-    Json::Value jsonObject;
-    bool parsingSuccessful = reader.parse(jsonString, jsonObject, false);
-    if (!parsingSuccessful){
-        perror("stringToJson");
+std::string VariableManager::createStruct(std::string jsonString) {
+    Json::Value jsonObject = jsonToString(jsonString);
+    std::string structName = jsonObject.get("nombreDeStruct", "noName").asString();
+    Json::Value variables = jsonObject["variables"];
+    for (int i = 0; i < variables.size(); ++i )
+    {
+        std::string name = variables[i].get("nombre", "noName").asString();
+        std::string dataType = variables[i].get("tipoDeDato", "typeError").asString();
+        void* ptr = setVariableValueToMemomery(dataType, variables[i]);
+        addStruct(ptr,dataType, name, structName);
     }
-    return jsonObject;
+    return std::string();
 }
 
-void *VariableManager::assignPointer(std::string dataType, Json::Value jsonObject) {
+
+
+std::string VariableManager::assignAddress(std::string jsonString) {
+    Json::Value jsonObject = stringToJson(jsonString);
+
+    //Encontrar el nodo del puntero
+    std::string pointerName = jsonObject.get("nombreDePuntero", "NameError").asString();
+    Node* nodeOfPointer = searchNode(pointerName);
+
+    //verifica que la variable del puntero exista
+    if (!nodeOfPointer){
+        perror("Puntero no encontrado");
+        return "Puntero no encontrado";
+    }
+    std::string pointerType = nodeOfPointer->getPointerType();
+
+    //Encontrar el nodo de la variable
+    std::string variableToAssign = jsonObject.get("nombreDeVariable", "NameError").asString();
+    Node* nodeOfVariableToAssign = searchNode(variableToAssign);
+    if (!nodeOfVariableToAssign){
+        perror("Variable no encontrada");
+        return "Variable no encontrada";
+    }
+
+    //Verifica si la variable es otro puntero
+    if( nodeOfVariableToAssign->getPointerType() != ""){
+        std::string pointerType2 =  nodeOfVariableToAssign->getPointerType();
+        if (pointerType2 == pointerType){
+            nodeOfPointer->setPointerPointer(nodeOfVariableToAssign->getPointerPointer());
+            return "";
+        }else{
+            perror("Tipo de puntero no compatible");
+            return "Tipo de puntero no compatible";
+        }
+
+    }else {
+        std::string variableType = nodeOfVariableToAssign->getDataType();
+
+        if (variableType == pointerType) {
+            //Asignar direccion al puntero del nodo
+            nodeOfPointer->setPointerPointer(nodeOfVariableToAssign->getPointer());
+        } else {
+            perror("Tipo de puntero no compatible");
+            return "Tipo de puntero no compatible";
+        }
+        return "";
+    }
+}
+
+std::string VariableManager::dellocatePointer(std::string jsonString){
+    Json::Value jsonObject = stringToJson(jsonString);
+    std::string pointerName = jsonObject.get("nombre", "NameError").asString();
+
+    Node* nodeOfPointer = searchNode(pointerName);
+    if (!nodeOfPointer){
+        perror("Variable no encontrada");
+        return "Variable no encontrada";
+    }
+    std::string pointerType = nodeOfPointer->getPointerType();
+
+    Json::Value jsonDellocatedPointer;
+    uintptr_t addr = reinterpret_cast<uintptr_t>(nodeOfPointer->getPointer());
+    std::cout << addr << std::endl;
+    jsonDellocatedPointer["direccion"] = addr;
+    jsonDellocatedPointer["tipoDeDato"] = pointerType;
+
+    void* ptr = nodeOfPointer->getPointerPointer();
+
+    jsonDellocatedPointer = getPointerValue(jsonDellocatedPointer, pointerType, ptr);
+
+    return jsonToString(jsonDellocatedPointer);
+}
+
+void *VariableManager::setVariableValueToMemomery(std::string dataType, Json::Value jsonObject) {
     void* ptr;
     if(dataType == "int"){
         int value = jsonObject.get("valor", "ValueError").asInt();
@@ -192,30 +255,51 @@ void *VariableManager::assignPointer(std::string dataType, Json::Value jsonObjec
     return ptr;
 }
 
-std::string VariableManager::createStruct(std::string jsonString) {
-    Json::Value jsonObject = jsonToString(jsonString);
-    std::string structName = jsonObject.get("nombre", "noName").asString();
-    Json::Value variables = jsonObject["variables"];
-    for (int i = 0; i < variables.size(); ++i )
-    {
-        std::string name = variables[i].get("nombre", "noName").asString();
-        std::string dataType = variables[i].get("tipoDeDato", "typeError").asString();
-        void* ptr = assignPointer(dataType, variables[i]);
-        addStruct(ptr,dataType, name, structName);
+Json::Value VariableManager::getPointerValue(Json::Value jsonObject, std::string variableType, void* pointer) {
+    if (variableType == "int") {
+        int *p = (int *) pointer;
+        jsonObject["value"] = *p;
+    } else if (variableType == "char") {
+        char *p = (char *) pointer;
+        std::string letra(1, *p);
+        jsonObject["value"] = letra;
+    } else if (variableType == "long") {
+        long *p = (long *) pointer;
+        jsonObject["value"] = *p;
+    } else if (variableType == "float") {
+        float *p = (float *) pointer;
+        jsonObject["value"] = *p;
+    } else if (variableType == "double") {
+        double *p = (double *) pointer;
+        jsonObject["value"] = *p;
     }
-    return std::string();
+    return jsonObject;
 }
 
-void VariableManager::addStruct(void * ptr, std::string dataType, std::string name, std::string structName) {
-        Scope* list = scopes.front();
-        list->addStruct(ptr, dataType, name, structName);
+std::string VariableManager::updateScopes(std::string scope){
+    if ( scope == "{"){
+        return newScope();
+    }else if (scope == "}"){
+        return endScope();
+    }else{
+        perror("Error al actualizar scopes");
+    }
 }
 
-void VariableManager::addPointer(void *ptr, std::string dataType, std::string name, std::string pointerType) {
-    Scope* list = scopes.front();
-    list->addPointer(ptr, dataType, name, pointerType);
+std::string VariableManager::jsonToString(Json::Value jsonObject) {
+    Json::FastWriter writer;
+    std::string jsonString = writer.write(jsonObject);
+    std::cout << jsonString << std::endl;  //Pa probar
+    return jsonString;
 }
 
-
-
+Json::Value VariableManager::stringToJson(std::string jsonString) {
+    Json::Reader reader;
+    Json::Value jsonObject;
+    bool parsingSuccessful = reader.parse(jsonString, jsonObject, false);
+    if (!parsingSuccessful){
+        perror("stringToJson");
+    }
+    return jsonObject;
+}
 

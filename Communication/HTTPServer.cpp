@@ -26,7 +26,9 @@ void HTTPServer::setupRoutes() { // -> Agrega las rutas para los servicios
     HTTPServer::router.addRoute(Http::Method::Post, "/crearVariable", Rest::Routes::bind(&HTTPServer::crearVariable, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/createStruct", Rest::Routes::bind(&HTTPServer::createStruct, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/devolverVariable", Rest::Routes::bind(&HTTPServer::devolverVariable, this));
-//    HTTPServer::router.addRoute(Http::Method::Post, "/asignarDireccion", Rest::Routes::bind(&HTTPServer::asignarDireccion, this));
+    HTTPServer::router.addRoute(Http::Method::Post, "/asignarDireccion", Rest::Routes::bind(&HTTPServer::asignarDireccion, this));
+    HTTPServer::router.addRoute(Http::Method::Post, "/dellocarPuntero", Rest::Routes::bind(&HTTPServer::dellocatePuntero, this));
+    HTTPServer::router.addRoute(Http::Method::Post, "/actualizarScopes", Rest::Routes::bind(&HTTPServer::actualizarScopes, this));
 
 
 }
@@ -34,9 +36,6 @@ void HTTPServer::setupRoutes() { // -> Agrega las rutas para los servicios
 void HTTPServer::crearVariable(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
     log(request.body());
     std::string jsonString = VariableManager::getInstance()->createVariable(request.body());
-//    std::cout<<MemoryPool::getInstance()->ObjectCount<<std::endl;
-//    Node* nodo = VariableManager::searchNode("num");
-//    std::cout << (*(int*)nodo->getPointer())<< std::endl;
     response.send(Http::Code::Ok, jsonString);
 }
 
@@ -48,10 +47,25 @@ void HTTPServer::devolverVariable(const Rest::Request &request, Pistache::Http::
 
 void HTTPServer::createStruct(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
     log(request.body());
-    std::string jsonString = VariableManager::getInstance()->returnVariableValue(request.body());
+    std::string jsonString = VariableManager::getInstance()->createStruct(request.body());
+    response.send(Http::Code::Ok, jsonString);
 }
 
 void HTTPServer::asignarDireccion(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
+    log(request.body());
+    std::string jsonString = VariableManager::getInstance()->assignAddress(request.body());
+    response.send(Http::Code::Ok, jsonString);
+}
+
+void HTTPServer::dellocatePuntero(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
+    log(request.body());
+    std::string jsonString = VariableManager::getInstance()->dellocatePointer(request.body());
+    response.send(Http::Code::Ok, jsonString);
 
 }
 
+void HTTPServer::actualizarScopes(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
+    log(request.body());
+    std::string jsonString = VariableManager::getInstance()->updateScopes(request.body());
+    response.send(Http::Code::Ok, jsonString);
+}

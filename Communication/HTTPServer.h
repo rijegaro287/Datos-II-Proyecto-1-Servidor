@@ -23,4 +23,8 @@ private:
     void createStruct(const Rest::Request &request, Pistache::Http::ResponseWriter response);
     void createReference(const Rest::Request &request, Pistache::Http::ResponseWriter response);
     void asignarDireccion(const Rest::Request &request, Pistache::Http::ResponseWriter response);
+
+    void dellocatePuntero(const Rest::Request &request, Http::ResponseWriter response);
+
+    void actualizarScopes(const Rest::Request &request, Http::ResponseWriter response);
 };

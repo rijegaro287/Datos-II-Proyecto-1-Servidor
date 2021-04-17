@@ -75,52 +75,33 @@ int main(){
 //    std::string picha = VariableManager::getInstance()->returnVariableValue(jsonString1);
 
     //PRUEBA ASIGNAR DIRECCIÓN A PUNTEROS Y DELLOCAR PUNTERO
-    //crear referencia
-    Json::Value jsonObject;
-    jsonObject["nombre"] = "pointer0";
-    jsonObject["tipoDeReferencia"] = "int";
-    jsonObject["tipoDeDato"] = "referencia";
-    jsonObject["espacioEnMemoriaDeTipoDeReferencia"] = 4;
-    std::string jsonString = VariableManager::jsonToString(jsonObject);
-    VariableManager::getInstance()->createVariable(jsonString);
-
-    Json::Value jsonObject4;
-    jsonObject4["nombre"] = "pointer1";
-    jsonObject4["tipoDeReferencia"] = "int";
-    jsonObject4["tipoDeDato"] = "referencia";
-    jsonObject4["espacioEnMemoriaDeTipoDeReferencia"] = 4;
-    std::string jsonString4 = VariableManager::jsonToString(jsonObject4);
-    VariableManager::getInstance()->createVariable(jsonString4);
-
-    //crear variable
-    Json::Value jsonObject2;
-    jsonObject2["nombre"] = "num1";
-    jsonObject2["valor"] = 2345;
-    jsonObject2["tipoDeDato"] = "int";
-    std::string jsonString2 = VariableManager::jsonToString(jsonObject2);
-    VariableManager::getInstance()->createVariable(jsonString2);
-
-    //asignar valor
-    Json::Value jsonObject1;
-    jsonObject1["nombreDePuntero"] = "pointer0";
-    jsonObject1["nombreDeVariable"] = "num1";
-    std::string jsonString1 = VariableManager::jsonToString(jsonObject1);
-    std::string texto = VariableManager::getInstance()->assignAddress(jsonString1);
-    std::cout<< texto<< std::endl;
-
-    //asignar direccion a la que apunta un puntero a otro
-    Json::Value jsonObject5;
-    jsonObject5["nombreDePuntero"] = "pointer1";
-    jsonObject5["nombreDeVariable"] = "pointer0";
-    std::string jsonString5 = VariableManager::jsonToString(jsonObject5);
-    std::string texto1 = VariableManager::getInstance()->assignAddress(jsonString5);
-    std::cout<< texto1<< std::endl;
-
-    //Dellocar referencia
-    Json::Value jsonObject3;
-    jsonObject3["nombre"] = "pointer1";
-    std::string jsonString3 = VariableManager::jsonToString(jsonObject3);
-    std::cout<< VariableManager::dellocatePointer(jsonString3) << std::endl;
-
-
-}
+//    //crear referencia
+//    Json::Value jsonObject;
+//    jsonObject["nombre"] = "pointer";
+//    jsonObject["tipoDeReferencia"] = "int";
+//    jsonObject["tipoDeDato"] = "referencia";
+//    jsonObject["espacioEnMemoriaDeTipoDeReferencia"] = 4;
+//    std::string jsonString = VariableManager::jsonToString(jsonObject);
+//    VariableManager::getInstance()->createVariable(jsonString);
+//
+//    //crear variable
+//    Json::Value jsonObject2;
+//    jsonObject2["nombre"] = "num1";
+//    jsonObject2["valor"] = 8;
+//    jsonObject2["tipoDeDato"] = "int";
+//    std::string jsonString2 = VariableManager::jsonToString(jsonObject2);
+//    VariableManager::getInstance()->createVariable(jsonString2);
+//
+//    //asignar valor
+//    Json::Value jsonObject1;
+//    jsonObject1["nombreDePuntero"] = "pointer";
+//    jsonObject1["nombreDeVariable"] = "num1";
+//    std::string jsonString1 = VariableManager::jsonToString(jsonObject1);
+//    std::string texto = VariableManager::getInstance()->assignAddress(jsonString1);
+//    std::cout<< texto<< std::endl;
+//
+//    //Dellocar referencia
+//    Json::Value jsonObject3;
+//    jsonObject3["nombre"] = "pointer";
+//    std::string jsonString3 = VariableManager::jsonToString(jsonObject3);
+//    std::cout<< VariableManager::dellocatePointer(jsonString3) << std::endl;

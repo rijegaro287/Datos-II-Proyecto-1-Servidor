@@ -14,13 +14,13 @@ private:
     std::string dataType; //Tipo de dato
     std::string variableName;  //Nombre de la variable
     std::string structName;  //Nombre de la estructura a la que pertenece (si pertenece)
+    std::string pointerType;  //Nombre de la estructura a la que pertenece (si pertenece)
     void* ptr;             //Puntero al dato almacenado
     Node *next;
 public:
     Node(){
         structName = "";
         next = 0;
-        ptr = 0;
     }
     Node* getNext(){return next;}
     void setNext(Node* nodo){ next = nodo;}
@@ -34,8 +34,27 @@ public:
         Node::structName= structName;
     }
 
-    void setPointerType(std::string pointerType) {
+    const std::string &getDataType() const {
+        return dataType;
+    }
 
+    void setPointerType(std::string pointerType) {
+        Node::pointerType = pointerType;
+    }
+
+    const std::string &getPointerType() const {
+        return pointerType;
+    }
+    void setPointerPointer(void* pVoid){
+        if (pointerType == "")
+            perror("Puntero sin tipo, tal vez esta variable no sea un puntero");
+        *((void**)ptr) = pVoid;
+    }
+    void* getPointerPointer(){
+        if(pointerType=="")
+            perror("Puntero sin tipo, tal vez esta variable no sea un puntero");
+        void* pVoid = *(void**)ptr;
+        return pVoid;
     }
 };
 #endif //DATOS_II_PROYECTO_1_SERVIDOR_NODE_H
