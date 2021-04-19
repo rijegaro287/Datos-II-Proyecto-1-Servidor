@@ -59,7 +59,8 @@
         bool LinkNodeToData(MemoryNode *ptrNewNodes, unsigned int uiNodeCount, TByte *ptrNewMemBlock);
         void SetMemoryNodeValues(MemoryNode *ptrNode, const std::size_t &MemBlockSize);
         bool RecalcNodeMemorySize(MemoryNode *ptrNodes, unsigned int uiNodeCount);
+        void reduceRefenceCount(void *ptr);
         void checkReferences();
-    };
+};
 
 #endif //DATOS_II_PROYECTO_1_SERVIDOR_MEMORYPOOL_H

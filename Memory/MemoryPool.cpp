@@ -170,6 +170,7 @@
 
                 // Step 2 : Set espacio usado a 0
                 ptrCurrentNode->usedSize = 0 ;
+                ptrCurrentNode->referenceCount = 0 ;
 
                 // Step 3 : Ajustar los valores de memoria de la pool y pasa al siguiente Node
                 UsedMemoryPoolSize -= MemoryNodeSize ;
@@ -334,8 +335,7 @@
 /*
  *
  */
-    MemoryNode *MemoryPool::FindNodeHoldingPointerTo(void *ptrMemoryBlock)
-    {
+    MemoryNode *MemoryPool::FindNodeHoldingPointerTo(void *ptrMemoryBlock){
         MemoryNode *ptrTempNode = ptrFirstNode ;
         while(ptrTempNode)
         {
@@ -402,15 +402,21 @@
         return false ;
     }
 
-    void MemoryPool::checkReferences() {
-        MemoryNode* tmpNode = ptrFirstNode;
-        while (tmpNode != ptrCursorNode){ //Esto está maomenos, verifica hasta el cursor node, si se le da una vuelta completa al memory pool ya no estaría verifcando to.do lo creado
-            if (tmpNode->usedSize > 0 && tmpNode->referenceCount == 0){
-                freeMemory(tmpNode->Data);
-            }
-            tmpNode = tmpNode->Next;
-        }
-
+void MemoryPool::reduceRefenceCount(void* ptr){
+    MemoryNode *ptrNode = FindNodeHoldingPointerTo(ptr);
+    if(ptrNode)
+    {
+        ptrNode->referenceCount--;
+        assert ((ptrNode->referenceCount < 0) && "ERROR : El puntero no se encuantra en el MemoryPool");
+    }
+    else
+        assert(false && "ERROR : El puntero no se encuantra en el MemoryPool") ;
     }
 
-
+void MemoryPool::checkReferences(){
+    MemoryNode *ptrTempNode = ptrFirstNode ;
+    while(ptrTempNode){
+        if(ptrTempNode->referenceCount == 0 and ptrTempNode->usedSize != 0)
+            freeMemory(ptrTempNode->Data);
+    }
+    }

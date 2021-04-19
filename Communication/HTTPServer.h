@@ -27,4 +27,6 @@ private:
     void dellocatePuntero(const Rest::Request &request, Http::ResponseWriter response);
 
     void actualizarScopes(const Rest::Request &request, Http::ResponseWriter response);
+
+    void dellocarPunteroYAsignarValor(const Rest::Request &request, Http::ResponseWriter response);
 };

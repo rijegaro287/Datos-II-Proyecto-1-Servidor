@@ -105,6 +105,8 @@ void Scope::deleteInPos(int pos){
 void Scope::freeAllMemory() {
     Node* tmp = head;
     while (tmp != nullptr){
+        if(tmp->getPointerType() != "")
+            MemoryPool::getInstance()->reduceRefenceCount(tmp->getPointerPointer());
         MemoryPool::getInstance()->freeMemory(tmp->getPointer());
         tmp->setPtr(nullptr);
         tmp = tmp->getNext();
