@@ -29,4 +29,6 @@ private:
     void actualizarScopes(const Rest::Request &request, Http::ResponseWriter response);
 
     void dellocarPunteroYAsignarValor(const Rest::Request &request, Http::ResponseWriter response);
+
+    void finalizarEjecucion(const Rest::Request &request, Http::ResponseWriter response);
 };

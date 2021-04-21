@@ -30,6 +30,7 @@ void HTTPServer::setupRoutes() { // -> Agrega las rutas para los servicios
     HTTPServer::router.addRoute(Http::Method::Post, "/dellocarPuntero", Rest::Routes::bind(&HTTPServer::dellocatePuntero, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/dellocarPunteroYAsignarValor", Rest::Routes::bind(&HTTPServer::dellocarPunteroYAsignarValor, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/actualizarScopes", Rest::Routes::bind(&HTTPServer::actualizarScopes, this));
+    HTTPServer::router.addRoute(Http::Method::Post, "/finalizarEjecucion", Rest::Routes::bind(&HTTPServer::finalizarEjecucion, this));
 
 
 }
@@ -49,7 +50,8 @@ void HTTPServer::devolverVariable(const Rest::Request &request, Pistache::Http::
 void HTTPServer::createStruct(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
     log(request.body());
     std::string jsonString = VariableManager::getInstance()->createStruct(request.body());
-    response.send(Http::Code::Ok, jsonString);
+    //response.send(Http::Code::Ok, jsonString);
+    response.send(Http::Code::Ok, "1");
 }
 
 void HTTPServer::asignarDireccion(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
@@ -74,4 +76,10 @@ void HTTPServer::actualizarScopes(const Rest::Request &request, Pistache::Http::
     log(request.body());
     std::string jsonString = VariableManager::getInstance()->updateScopes(request.body());
     response.send(Http::Code::Ok, jsonString);
+}
+
+
+void HTTPServer::finalizarEjecucion(const Rest::Request &request, Http::ResponseWriter response) {
+    log(request.body());
+    response.send(Http::Code::Ok);
 }
