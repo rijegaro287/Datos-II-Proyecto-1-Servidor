@@ -120,6 +120,12 @@ std::string VariableManager::createVariable(std::string jsonString) {
     std::string name = jsonObject.get("nombre", "noName").asString();
     std::string dataType = jsonObject.get("tipoDeDato", "typeError").asString();
 
+    //Verifica si ya existe una variable con ese nombre
+    Node* nodeIfVariableAlreadyExist = searchNode(name);
+    if (nodeIfVariableAlreadyExist){
+        perror("\"La variable ya existe\"");
+        return "La variable ya existe";
+    }
     void* ptr;
     //Verifica si la variable es un puntero
     if(dataType == "referencia"){

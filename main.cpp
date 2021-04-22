@@ -21,4 +21,6 @@ int main(){
     std::string jsonString2 = VariableManager::jsonToString(jsonObject2);
     VariableManager::getInstance()->createVariable(jsonString2);
 
+    std::cout<<MemoryPool::getInstance()->ObjectCount << std::endl;
+
 }

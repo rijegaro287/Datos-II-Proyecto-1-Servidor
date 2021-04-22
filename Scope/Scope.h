@@ -33,6 +33,8 @@ public:
     void addPointer(void *pVoid, std::string dataType, std::string name, std::string pointerType);
 
     void checkReferenceCount();
+
+    bool inn(std::string name);
 };
 
 

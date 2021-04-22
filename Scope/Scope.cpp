@@ -20,14 +20,6 @@ Scope::~Scope() {
  * Recibe el puntero al dato, el tipo de dato y el nombre de la variable.
  */
 void Scope::add(void* ptr, std::string dataType, std::string varName){
-    Node* tmp = head;
-    for (int i = 0; i < length; ++i) {
-        if(varName == tmp->getVariableName()){
-            perror("\"La variable ya existe\"");
-            return;
-        }
-        tmp->setNext(tmp->getNext());
-    }
     Node* newNode = new Node();
     newNode->setPtr(ptr);
     newNode->increaseCount();
@@ -253,6 +245,23 @@ void Scope::addPointer(void *ptr, std::string dataType, std::string name, std::s
     length++;
 }
 
+bool Scope::inn(std::string name){
+    Node* tmp = head;
+    bool inn = false;
+    for (int i = 0; i < length; ++i) {
+        if(name == tmp->getVariableName()){
+            perror("\"La variable ya existe\"");
+            inn = true;
+            break;
+        }
+        tmp->setNext(tmp->getNext());
+    }
+    if (inn){
+        return true;
+    }else {
+        return false;
+    }
+}
 
 
 
