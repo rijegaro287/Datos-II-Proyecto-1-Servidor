@@ -8,6 +8,8 @@ using namespace std;
 int main(){
 //    HTTPServer *mserver = HTTPServer::createServer(9999);
 
+    VariableManager::getInstance()->updateScopes("{");
+
     Json::Value jsonObject;
     jsonObject["nombre"] = "num";
     jsonObject["valor"] = "h";
@@ -24,7 +26,5 @@ int main(){
     std::string jsonString2 = VariableManager::jsonToString(jsonObject2);
     VariableManager::getInstance()->returnAddress(jsonString2);
 
-
-
-
+    VariableManager::getInstance()->updateScopes("}");
 }

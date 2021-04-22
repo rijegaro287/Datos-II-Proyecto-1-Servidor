@@ -135,8 +135,10 @@ std::string VariableManager::createVariable(std::string jsonString) {
     }
 
     //Devulve dirección
-    uintptr_t addr = reinterpret_cast<uintptr_t>(ptr);
-    jsonObject["direccion"] = addr;
+    std::ostringstream address;
+    address << (void const *)ptr;
+    std::string direccion = address.str();
+    jsonObject["direccion"] = direccion;
     jsonObject["conteoDeReferencias"] = searchNode(name)->getReferenceCount();
     return jsonToString(jsonObject);
 }
@@ -151,8 +153,10 @@ std::string VariableManager::returnVariableValue(std::string jsonString) {
     }
     Json::Value jsonVariable;
     jsonVariable["tipoDeDato"] = variableNode->getVariableType();
-    uintptr_t addr = reinterpret_cast<uintptr_t>(variableNode->getPointer());
-    jsonVariable["direccion"] = addr;
+    std::ostringstream address;
+    address << (void const *)variableNode->getPointer();
+    std::string direccion = address.str();
+    jsonVariable["direccion"] = direccion;
 
     jsonVariable = getPointerValue(jsonVariable, variableNode->getVariableType(), variableNode->getPointer());
 
@@ -171,8 +175,10 @@ std::string VariableManager::createStruct(std::string jsonString) {
         void* ptr = setVariableValueToMemomery(dataType, variables[i]);
         addStruct(ptr,dataType, name, "structName");
 
-        uintptr_t addr = reinterpret_cast<uintptr_t>(ptr);
-        jsonObject["variables"][i]["direccion"] = addr;
+        std::ostringstream address;
+        address << (void const *)ptr;
+        std::string direccion = address.str();
+        jsonObject["variables"][i]["direccion"] = direccion;
         jsonObject["variables"][i]["conteoDeReferencias"] = searchNode(ptr)->getReferenceCount();
     }
     return jsonToString(jsonObject);
@@ -273,8 +279,10 @@ std::string VariableManager::dellocateAndSetPointerValue(std::string jsonString)
 
     Json::Value json;
     json = getPointerValue(jsonObject, pointerType, ptr);
-    uintptr_t addr = reinterpret_cast<uintptr_t>(nodeOfPointer->getPointer());
-    json["direccion"] = addr;
+    std::ostringstream address;
+    address << (void const *)ptr;
+    std::string direccion = address.str();
+    json["direccion"] = direccion;
     return jsonToString(json);
 }
 
@@ -290,9 +298,10 @@ std::string VariableManager::derefencePointer(std::string jsonString){
     std::string pointerType = nodeOfPointer->getPointerType();
 
     Json::Value jsonDellocatedPointer;
-    uintptr_t addr = reinterpret_cast<uintptr_t>(nodeOfPointer->getPointer());
-    std::cout << addr << std::endl;
-    jsonDellocatedPointer["direccion"] = addr;
+    std::ostringstream address;
+    address << (void const *)nodeOfPointer->getPointer();
+    std::string direccion = address.str();
+    jsonDellocatedPointer["direccion"] = direccion;
     jsonDellocatedPointer["tipoDeDato"] = pointerType;
 
     void* ptr = nodeOfPointer->getPointerPointer();
@@ -397,8 +406,10 @@ std::string VariableManager::returnAddress(std::string jsonString) {
     std::string name = jsonObject.get("nombre", "NameError").asString();
     Node* variableNode = searchNode(name);
     void* ptr = variableNode->getPointer();
-    uintptr_t addr = reinterpret_cast<uintptr_t>(ptr);
-    jsonObject["direccion"] = addr;
+    std::ostringstream address;
+    address << (void const *)ptr;
+    std::string direccion = address.str();
+    jsonObject["direccion"] = direccion;
     return jsonToString(jsonObject);
 }
 
