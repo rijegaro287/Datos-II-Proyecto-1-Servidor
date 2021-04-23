@@ -31,11 +31,11 @@ public:
 
     static VariableManager* getInstance();
         static Node* searchNode(std::string varName);
-        static std::string createVariable(std::string);
+        static std::string createVariable(std::string jsonString);
         std::string returnVariableValue(std::string);
         std::string createStruct(std::string);
         std::string assignAddress(std::string jsonString);
-        static std::string derefencePointer(std::string jsonString);
+        static std::string dereferencePointer(std::string jsonString);
         std::string updateScopes(std::string scope);
 
 
@@ -51,6 +51,10 @@ public:
     std::string returnAddress(std::string jsonString);
 
     void endRun();
+
+    void *spaceForPrimitiveData(std::string jsonString);
+
+    void *spaceForPrimitiveData(Json::Value jsonObject);
 };
 
 

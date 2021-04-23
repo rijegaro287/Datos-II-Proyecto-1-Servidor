@@ -109,6 +109,15 @@ Node* VariableManager::searchNode(void* ptr) {
     return nodo;
 }
 
+void* VariableManager::spaceForPrimitiveData(Json::Value jsonObject) {
+    std::string name = "";
+    std::string dataType = jsonObject.get("tipoDeDato", "typeError").asString();
+    void* ptr;
+    ptr = setVariableValueToMemomery(dataType, jsonObject);
+    add(ptr,dataType, name);
+    return ptr;
+}
+
 /*
  * Crea variables de referencia y datos primitivos
  * Recibe un string de un json con las caracteristicas
@@ -120,12 +129,12 @@ std::string VariableManager::createVariable(std::string jsonString) {
     std::string name = jsonObject.get("nombre", "noName").asString();
     std::string dataType = jsonObject.get("tipoDeDato", "typeError").asString();
 
-    //Verifica si ya existe una variable con ese nombre
-    Node* nodeIfVariableAlreadyExist = searchNode(name);
-    if (nodeIfVariableAlreadyExist){
+    Node *nodeIfVariableAlreadyExist = searchNode(name);
+    if (nodeIfVariableAlreadyExist) {//Verifica si ya existe una variable con ese nombre
         perror("\"La variable ya existe\"");
         return "La variable ya existe";
     }
+
     void* ptr;
     //Verifica si la variable es un puntero
     if(dataType == "referencia"){
@@ -134,11 +143,11 @@ std::string VariableManager::createVariable(std::string jsonString) {
         void* pVoid;
         *((void**)ptr) = pVoid;
         addPointer(ptr,dataType, name, pointerType);
-    }else {
+    }else { //Si la variable es de un dato primitivo
         //Asigna al valor un puntero disponible
         ptr = setVariableValueToMemomery(dataType, stringToJson(jsonString));
         add(ptr,dataType, name);
-    }
+        }
 
     //Devulve dirección
     std::ostringstream address;
@@ -190,9 +199,85 @@ std::string VariableManager::createStruct(std::string jsonString) {
     return jsonToString(jsonObject);
 }
 
+//std::string VariableManager::assignAddress(std::string jsonString) {
+//    Json::Value jsonObject = stringToJson(jsonString);
+//
+//    //Encontrar el nodo del puntero
+//    std::string pointerName = jsonObject.get("nombreDePuntero", "NameError").asString();
+//    Node* nodeOfPointer = searchNode(pointerName);
+//
+//    //verifica que la variable del puntero exista
+//    if (!nodeOfPointer){
+//        perror("Puntero no encontrado");
+//        return "Puntero no encontrado";
+//    }
+//    void* currentPointerAdress = nodeOfPointer->getPointerPointer();
+//    std::string pointerType = nodeOfPointer->getPointerType();
+//
+//    //Encontrar el nodo de la variable
+//    std::string variableToAssign = jsonObject.get("nombreDeVariable", "NameError").asString();
+//    Node* nodeOfVariableToAssign = searchNode(variableToAssign);
+//    if (!nodeOfVariableToAssign){
+//        perror("Variable no encontrada");
+//        return "Variable no encontrada";
+//    }
+//
+//    //Verifica si la variable es otro puntero
+//    if( nodeOfVariableToAssign->getPointerType() != ""){
+//        std::string pointerType2 =  nodeOfVariableToAssign->getPointerType();
+//        if (pointerType2 == pointerType){
+//            nodeOfPointer->setPointerPointer(nodeOfVariableToAssign->getPointerPointer());
+//
+//            Node* nodeOfVariablePointed = searchNode(nodeOfVariableToAssign->getPointerPointer());
+//            //Aumenta el conteo de referencias de la variable a la que se apuntaba
+//            if (nodeOfVariablePointed) {
+//                nodeOfVariablePointed->increaseCount();
+//                Node *node = searchNode(currentPointerAdress);
+//                if (node) {
+//                    node->decreaseCount();
+//                    jsonObject["nombreDeVariableAnterior"] = node->getVariableName();
+//                    jsonObject["conteoDeReferenciasDeVariableAnterior"] = node->getReferenceCount();
+//                }
+//                jsonObject["conteoDeReferenciasDePuntero"] = searchNode(pointerName)->getReferenceCount();
+//                jsonObject["conteoDeReferenciasDeVariable"] = nodeOfVariablePointed->getReferenceCount();
+//                return jsonToString(jsonObject);
+//            }
+//            else {
+//                //Aquí se llega si la dirección a la que apunta el segundo puntero no es una variable o si nunca apuntó a nada
+//                jsonObject["conteoDeReferenciasDePuntero"] = searchNode(pointerName)->getReferenceCount();
+//                jsonObject["conteoDeReferenciasDeVariable"] = "null";
+//                return jsonToString(jsonObject);
+//            }
+//        }else{
+//            perror("Tipo de puntero no compatible");
+//            return "Tipo de puntero no compatible";
+//        }
+//    //Si la variable es una variable
+//    }else {
+//        std::string variableType = nodeOfVariableToAssign->getDataType();
+//
+//        if (variableType == pointerType) {
+//            //Asignar direccion al puntero del nodo
+//            nodeOfPointer->setPointerPointer(nodeOfVariableToAssign->getPointer());
+//            nodeOfVariableToAssign->increaseCount();
+//        } else {
+//            perror("Tipo de puntero no compatible");
+//            return "Tipo de puntero no compatible";
+//        }
+//        Node* node = searchNode(currentPointerAdress);
+//        if(node) {
+//            node->decreaseCount();
+//            jsonObject["nombreDeVariableAnterior"] = node->getVariableName();
+//            jsonObject["conteoDeReferenciasDeVariableAnterior"] = node->getReferenceCount();
+//        }
+//        jsonObject["conteoDeReferenciasDePuntero"] = searchNode(pointerName)->getReferenceCount();
+//        jsonObject["conteoDeReferenciasDeVariable"] = searchNode(variableToAssign)->getReferenceCount();
+//        return jsonToString(jsonObject);
+//    }
+//}
+
 std::string VariableManager::assignAddress(std::string jsonString) {
     Json::Value jsonObject = stringToJson(jsonString);
-
     //Encontrar el nodo del puntero
     std::string pointerName = jsonObject.get("nombreDePuntero", "NameError").asString();
     Node* nodeOfPointer = searchNode(pointerName);
@@ -202,97 +287,76 @@ std::string VariableManager::assignAddress(std::string jsonString) {
         perror("Puntero no encontrado");
         return "Puntero no encontrado";
     }
-    void* currentPointerAdress = nodeOfPointer->getPointerPointer();
+    //Guarda el puntero de la dirección a la que apunta el puntero antes de que se realice el cambio
+    void* oldPointerAddress = nodeOfPointer->getPointerPointer(); //Dirección a la que apuntaba el puntero
     std::string pointerType = nodeOfPointer->getPointerType();
 
     //Encontrar el nodo de la variable
     std::string variableToAssign = jsonObject.get("nombreDeVariable", "NameError").asString();
-    Node* nodeOfVariableToAssign = searchNode(variableToAssign);
-    if (!nodeOfVariableToAssign){
+    if (variableToAssign == "") { //Si no hay variable y asigna un dato.
+        std::string dataType = jsonObject.get("tipoDeDato", "TypeError").asString();
+        void* ptr = spaceForPrimitiveData(jsonObject);
+        add(ptr, dataType, variableToAssign);
+        nodeOfPointer->setPointerPointer(ptr);
+
+        Node* primitiveData = searchNode(ptr);
+        jsonObject["datoPrimitivoNuevo"]["name"] = "";
+        jsonObject["datoPrimitivoNuevo"]["conteoDeReferencias"] = primitiveData->getReferenceCount();
+        jsonObject["datoPrimitivoNuevo"]["valor"] = jsonObject.get("valor","ValueError");
+        std::ostringstream address;
+        address << (void const *)ptr;
+        std::string direccion = address.str();
+        jsonObject["datoPrimitivoNuevo"]["direccion"] = direccion;
+        return jsonToString(jsonObject);
+    }
+
+
+    Node *nodeOfVariableToAssign = searchNode(variableToAssign);
+    //Verifica que la variable exista
+    if (!nodeOfVariableToAssign) {
         perror("Variable no encontrada");
         return "Variable no encontrada";
     }
 
-    //Verifica si la variable es otro puntero
-    if( nodeOfVariableToAssign->getPointerType() != ""){
-        std::string pointerType2 =  nodeOfVariableToAssign->getPointerType();
-        if (pointerType2 == pointerType){
-            nodeOfPointer->setPointerPointer(nodeOfVariableToAssign->getPointerPointer());
-
-            Node* nodeOfVariablePointed = searchNode(nodeOfVariableToAssign->getPointerPointer());
-            //Aumenta el conteo de referencias de la variable a la que se apuntaba
-            if (nodeOfVariablePointed) {
-                nodeOfVariablePointed->increaseCount();
-                Node *node = searchNode(currentPointerAdress);
-                if (node) {
-                    node->decreaseCount();
-                    jsonObject["nombreDeVariableAnterior"] = node->getVariableName();
-                    jsonObject["conteoDeReferenciasDeVariableAnterior"] = node->getReferenceCount();
-                }
-                jsonObject["conteoDeReferenciasDePuntero"] = searchNode(pointerName)->getReferenceCount();
-                jsonObject["conteoDeReferenciasDeVariable"] = nodeOfVariablePointed->getReferenceCount();
-                return jsonToString(jsonObject);
-            }
-            else {
-                //Aquí se llega si la dirección a la que apunta el segundo puntero no es una variable o si nunca apuntó a nada
-                jsonObject["conteoDeReferenciasDePuntero"] = searchNode(pointerName)->getReferenceCount();
-                jsonObject["conteoDeReferenciasDeVariable"] = "null";
-                return jsonToString(jsonObject);
-            }
-        }else{
-            perror("Tipo de puntero no compatible");
-            return "Tipo de puntero no compatible";
-        }
-    //Si la variable es una variable
-    }else {
+    //Dos casos:
+    if( nodeOfVariableToAssign->getPointerType() == "") { //Si la variable es de datos primitivos
         std::string variableType = nodeOfVariableToAssign->getDataType();
 
-        if (variableType == pointerType) {
+        if (variableType == pointerType) { //Si los tipos de datos son compatibles
             //Asignar direccion al puntero del nodo
             nodeOfPointer->setPointerPointer(nodeOfVariableToAssign->getPointer());
             nodeOfVariableToAssign->increaseCount();
+            jsonObject["conteoDeReferenciasDeVariable"] = nodeOfVariableToAssign->getReferenceCount();
         } else {
             perror("Tipo de puntero no compatible");
             return "Tipo de puntero no compatible";
         }
-        Node* node = searchNode(currentPointerAdress);
-        if(node) {
-            node->decreaseCount();
-            jsonObject["nombreDeVariableAnterior"] = node->getVariableName();
-            jsonObject["conteoDeReferenciasDeVariableAnterior"] = node->getReferenceCount();
+    }else { //Si la variable es un puntero
+        std::string VariablepointerType = nodeOfVariableToAssign->getPointerType();
+        if (VariablepointerType == VariablepointerType) {
+            //Se asigna la direccion a la que apunta el puntero2 al puntero1.
+            nodeOfPointer->setPointerPointer(nodeOfVariableToAssign->getPointerPointer());
+            Node *nodeOfVariablePointed = searchNode(nodeOfVariableToAssign->getPointerPointer());
+            if (nodeOfVariablePointed) { //Si la variable almacena una variable o dato primitivo
+                //Aumenta el conteo de referencias de la variable a la que se apuntaba
+                nodeOfVariablePointed->increaseCount();
+                jsonObject["conteoDeReferenciasDeVariable"] = nodeOfVariablePointed->getReferenceCount();
+            }
         }
-        jsonObject["conteoDeReferenciasDePuntero"] = searchNode(pointerName)->getReferenceCount();
-        jsonObject["conteoDeReferenciasDeVariable"] = searchNode(variableToAssign)->getReferenceCount();
-        return jsonToString(jsonObject);
     }
 
-}
-
-std::string VariableManager::dereferenceAndSetPointerValue(std::string jsonString){
-    Json::Value jsonObject = stringToJson(jsonString);
-    std::string pointerName = jsonObject.get("nombre", "NameError").asString();
-    jsonObject["nombre"] = "";
-
-    Node* nodeOfPointer = searchNode(pointerName);
-    if (!nodeOfPointer){
-        perror("Variable no encontrada");
-        return "Variable no encontrada";
+    //Reducir el conteo del dato que se dejó de apuntar
+    Node* nodeOfOldPointerAddress = searchNode(oldPointerAddress);
+    if(nodeOfOldPointerAddress) {
+        nodeOfOldPointerAddress->decreaseCount();
+        jsonObject["datoAntiguo"]["nombre"] = nodeOfOldPointerAddress->getVariableName();
+        jsonObject["datoAntiguo"]["conteoDeReferencias"] = nodeOfOldPointerAddress->getReferenceCount();
     }
-    std::string pointerType = nodeOfPointer->getPointerType();
-
-    void* ptr = setVariableValueToMemomery(pointerType, stringToJson(jsonString));
-    nodeOfPointer->setPointerPointer(ptr);
-
-    Json::Value json;
-    json = getPointerValue(jsonObject, pointerType, ptr);
-    std::ostringstream address;
-    address << (void const *)ptr;
-    std::string direccion = address.str();
-    json["direccion"] = direccion;
-    return jsonToString(json);
+    jsonObject["conteoDeReferenciasDePuntero"] = searchNode(pointerName)->getReferenceCount();
+    return jsonToString(jsonObject);
 }
 
-std::string VariableManager::derefencePointer(std::string jsonString){
+std::string VariableManager::dereferencePointer(std::string jsonString){
     Json::Value jsonObject = stringToJson(jsonString);
     std::string pointerName = jsonObject.get("nombre", "NameError").asString();
 

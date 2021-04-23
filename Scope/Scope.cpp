@@ -141,7 +141,6 @@ Json::Value Scope::freeAllMemory() {
     int i = 0;
     while (tmp != nullptr){
         if(tmp->getPointerType() != "") {
-//            MemoryPool::getInstance()->reduceRefenceCount(tmp->getPointerPointer());
             Node *nodeOfVariablePointed = searchNode(tmp->getPointerPointer());
             if (nodeOfVariablePointed)
                 nodeOfVariablePointed->decreaseCount();

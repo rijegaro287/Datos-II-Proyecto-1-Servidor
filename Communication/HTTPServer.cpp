@@ -30,7 +30,7 @@ void HTTPServer::setupRoutes() { // -> Agrega las rutas para los servicios
     HTTPServer::router.addRoute(Http::Method::Post, "/devolverDireccion", Rest::Routes::bind(&HTTPServer::returnAddress, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/asignarDireccion", Rest::Routes::bind(&HTTPServer::asignarDireccion, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/dellocarPuntero", Rest::Routes::bind(&HTTPServer::dellocarPuntero, this));
-    HTTPServer::router.addRoute(Http::Method::Post, "/dellocarPunteroYAsignarValor", Rest::Routes::bind(&HTTPServer::dellocarPunteroYAsignarValor, this));
+    HTTPServer::router.addRoute(Http::Method::Post, "/actualizarScopes", Rest::Routes::bind(&HTTPServer::actualizarScopes, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/finalizarEjecucion", Rest::Routes::bind(&HTTPServer::finalizarEjecucion, this));
 
 }
@@ -69,7 +69,7 @@ void HTTPServer::asignarDireccion(const Rest::Request &request, Pistache::Http::
 
 void HTTPServer::dellocarPuntero(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
     log(request.body());
-    std::string jsonString = VariableManager::getInstance()->derefencePointer(request.body());
+    std::string jsonString = VariableManager::getInstance()->dereferencePointer(request.body());
     response.send(Http::Code::Ok, jsonString);
 }
 

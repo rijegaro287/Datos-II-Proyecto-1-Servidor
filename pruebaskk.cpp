@@ -114,7 +114,7 @@ int main() {
 //    std::string texto1 = VariableManager::getInstance()->assignAddress(jsonString5);
 //    std::cout << texto1 << std::endl;
 //
-//    //Dellocar referencia
+//    //desreferenciasr referencia
 //    Json::Value jsonObject3;
 //    jsonObject3["nombre"] = "pointer1";
 //    std::string jsonString3 = VariableManager::jsonToString(jsonObject3);
