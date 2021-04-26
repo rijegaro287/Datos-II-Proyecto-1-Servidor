@@ -34,6 +34,7 @@ void HTTPServer::setupRoutes() { // -> Agrega las rutas para los servicios
     HTTPServer::router.addRoute(Http::Method::Post, "/desreferenciarPuntero", Rest::Routes::bind(
             &HTTPServer::desreferenciarPuntero, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/actualizarScopes", Rest::Routes::bind(&HTTPServer::actualizarScopes, this));
+    HTTPServer::router.addRoute(Http::Method::Post, "/primerRecorrido", Rest::Routes::bind(&HTTPServer::primerRecorrido, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/finalizarEjecucion", Rest::Routes::bind(&HTTPServer::finalizarEjecucion, this));
 }
 
@@ -135,6 +136,13 @@ void HTTPServer::returnAddress(const Rest::Request &request, Pistache::Http::Res
     }else
         response.send(Http::Code::Ok, jsonString);
 }
+
+void HTTPServer::primerRecorrido(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
+    log(request.body());
+//    VariableManager::getInstance()->overview();
+    response.send(Http::Code::Ok);
+}
+
 
 void HTTPServer::finalizarEjecucion(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
     log(request.body());

@@ -78,4 +78,6 @@ private:
     void retornarTimeline(const Rest::Request &request, Http::ResponseWriter response);
 
     void retornarAtributoDeStruct(const Rest::Request &request, Http::ResponseWriter response);
+
+    void primerRecorrido(const Rest::Request &request, Http::ResponseWriter response);
 };

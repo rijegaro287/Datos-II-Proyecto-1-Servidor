@@ -54,6 +54,10 @@ iostream
 fstream
 -
 
+/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Communication/HTTPServer.cpp
+HTTPServer.h
+/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Communication/HTTPServer.h
+
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/Communication/HTTPServer.h
 pistache/endpoint.h
 -
@@ -83,10 +87,6 @@ cassert
 -
 json/value.h
 -
-
-/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/VariableManager.cpp
-VariableManager.h
-/home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/VariableManager.h
 
 /home/yordi/Documentos/GitKraken/Datos-II-Proyecto-1-Servidor/VariableManager.h
 list

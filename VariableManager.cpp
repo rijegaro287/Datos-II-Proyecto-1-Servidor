@@ -448,6 +448,7 @@ std::string VariableManager::returnAddress(std::string jsonString) {
     address << (void const *)ptr;
     std::string direccion = address.str();
     jsonObject["direccion"] = direccion;
+    jsonObject["tipoDeDato"] = variableNode->getDataType();
     return jsonToString(jsonObject);
 }
 
@@ -490,7 +491,9 @@ std::string VariableManager::returnStructAttribute(std::string jsonString) {
     return jsonToString(jsonObject);
 }
 
-
+//std::string VariableManager::overview(std::string jsonString) {
+// overview =
+//}
 
 
 

@@ -59,6 +59,8 @@ public:
 
     static Json::Value jsonTimeline;
     static std::list<Scope *> scopes;
+
+    std::string overview(std::string jsonString);
 };
 
 

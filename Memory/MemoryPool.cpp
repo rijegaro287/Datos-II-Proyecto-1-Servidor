@@ -78,7 +78,7 @@
         SetMemoryNodeValues(ptrNode, sBestMemBlockSize) ;
 
         // Devuelve el puntero al espacio de memoria
-        return ((void *) ptrNode->Data) ;
+        return ((void *) ptrNode->data) ;
     }
 
 /*
@@ -160,7 +160,7 @@
                 // Note : Opcional pero sirve para el debugging
                 if(SetMemoryData)
                 {
-                    memset(((void *) ptrCurrentNode->Data), FREEED_MEMORY_CONTENT, MemoryNodeSize) ;
+                    memset(((void *) ptrCurrentNode->data), FREEED_MEMORY_CONTENT, MemoryNodeSize) ;
                 }
 
                 // Step 2 : Set espacio usado a 0
@@ -195,7 +195,7 @@
                     ptrNode = ptrFirstNode ;
                 }
 
-                if(ptrNode->DataSize >= MemorySize)
+                if(ptrNode->dataSize >= MemorySize)
                 {
                     if(ptrNode->usedSize == 0)
                     {
@@ -276,13 +276,13 @@
             }
 
             uiMemOffSet = (i * ((unsigned int) MemoryNodeSize)) ;
-            ptrLastNode->Data = &(ptrNewMemBlock[uiMemOffSet]) ;
+            ptrLastNode->data = &(ptrNewMemBlock[uiMemOffSet]) ;
 
             //El primer nodo asignado al MemoryPool es el
             //AllocartioNode. Este nodo almacena el puntero del malloc.
             //es el responsable de liberar la memoria luego.
             if(!bAllocationNodeAssigned){
-                ptrLastNode->IsAllocationNode = true ;
+                ptrLastNode->isAllocationNode = true ;
                 bAllocationNodeAssigned = true ;
             }
         }
@@ -300,7 +300,7 @@
             if(ptrNodes)
             {
                 uiMemOffSet = (i * ((unsigned int) MemoryNodeSize)) ;
-                ptrNodes->DataSize = (((unsigned int) TotalMemoryPoolSize) - uiMemOffSet) ;
+                ptrNodes->dataSize = (((unsigned int) TotalMemoryPoolSize) - uiMemOffSet) ;
                 ptrNodes = ptrNodes->next ;
             }
             else
@@ -319,10 +319,10 @@
     {
         if(ptrNode)
         {
-            ptrNode->Data = NULL ;
-            ptrNode->DataSize = 0 ;
+            ptrNode->data = NULL ;
+            ptrNode->dataSize = 0 ;
             ptrNode->usedSize = 0 ;
-            ptrNode->IsAllocationNode = false ;
+            ptrNode->isAllocationNode = false ;
             ptrNode->next = NULL ;
         }
         return ptrNode ;
@@ -335,7 +335,7 @@
         MemoryNode *ptrTempNode = ptrFirstNode ;
         while(ptrTempNode)
         {
-            if(ptrTempNode->Data == ((TByte *) ptrMemoryBlock))
+            if(ptrTempNode->data == ((TByte *) ptrMemoryBlock))
             {
                 break ;
             }
@@ -352,9 +352,9 @@
         MemoryNode *ptrNode = ptrFirstNode ;
         while(ptrNode)
         {
-            if(ptrNode->IsAllocationNode)
+            if(ptrNode->isAllocationNode)
             {
-                free(((void *) (ptrNode->Data))) ;
+                free(((void *) (ptrNode->data))) ;
             }
             ptrNode = ptrNode->next ;
         }
@@ -369,7 +369,7 @@
         MemoryNode *ptrChunkToDelete = NULL ;
         while(ptrChunk)
         {
-            if(ptrChunk->IsAllocationNode)
+            if(ptrChunk->isAllocationNode)
             {
                 if(ptrChunkToDelete)
                 {
@@ -389,7 +389,7 @@
 //        MemoryNode *ptrChunk = ptrFirstNode ;
 //        while(ptrChunk)
 //        {
-//            if(ptrChunk->Data == ((TByte *) ptrPointer))
+//            if(ptrChunk->data == ((TByte *) ptrPointer))
 //            {
 //                return true ;
 //            }
@@ -413,7 +413,7 @@
 //    MemoryNode *ptrTempNode = ptrFirstNode ;
 //    while(ptrTempNode){
 //        if(ptrTempNode->referenceCount == 0 and ptrTempNode->usedSize != 0)
-//            freeMemory(ptrTempNode->Data);
+//            freeMemory(ptrTempNode->data);
 //    }
 //    }
 
