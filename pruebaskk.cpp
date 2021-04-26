@@ -126,4 +126,30 @@ int main() {
 //    jsonObject3["valor"] = 523;
 //    std::string jsonString3 = VariableManager::jsonToString(jsonObject3);
 //    VariableManager::getInstance()->updateVariableValue(jsonString3);
+
+
+
+//    Json::Value jsonObject;
+//    jsonObject["nombre"] = "num";
+//    jsonObject["valor"] = 635;
+//    jsonObject["tipoDeDato"] = "int";
+//    std::string jsonString = VariableManager::jsonToString(jsonObject);
+//
+//    VariableManager::getInstance()->createVariable(jsonString);
+//
+//
+//    Json::Value jsonObject1;
+//    jsonObject1["nombre"] = "pointer0";
+//    jsonObject1["tipoDeReferencia"] = "int";
+//    jsonObject1["tipoDeDato"] = "referencia";
+//    jsonObject1["espacioEnMemoriaDeTipoDeReferencia"] = 4;
+//    jsonObject1["valor"] = "num";
+//    std::string jsonString1 = VariableManager::jsonToString(jsonObject1);
+//    VariableManager::getInstance()->createVariable(jsonString1);
+//
+//    Json::Value jsonObject3;
+//    jsonObject3["nombre"] = "pointer0";
+//    std::string jsonString3 = VariableManager::jsonToString(jsonObject3);
+//    std::cout << VariableManager::dereferencePointer(jsonString3) << std::endl;
+
 }

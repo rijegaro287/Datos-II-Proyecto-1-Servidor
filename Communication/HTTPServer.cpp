@@ -34,11 +34,12 @@ void HTTPServer::setupRoutes() { // -> Agrega las rutas para los servicios
             &HTTPServer::desreferenciarPuntero, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/actualizarScopes", Rest::Routes::bind(&HTTPServer::actualizarScopes, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/finalizarEjecucion", Rest::Routes::bind(&HTTPServer::finalizarEjecucion, this));
+    HTTPServer::router.addRoute(Http::Method::Post, "/retornarTimeline", Rest::Routes::bind(&HTTPServer::retornarTimeline, this));
 }
 
 void HTTPServer::conexionInicial(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
     log(request.body());
-    response.send(Http::Code::Ok, "Conexion establecida correctamente");
+    response.send(Http::Code::Ok, "Conexion establecida correctamente, servidor eschuchando el puerto: 9999.Espacio en memeoria creado: 1000 bytes");
 }
 
 void HTTPServer::crearVariable(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
@@ -128,4 +129,10 @@ void HTTPServer::finalizarEjecucion(const Rest::Request &request, Pistache::Http
     log(request.body());
     VariableManager::getInstance()->endRun();
     response.send(Http::Code::Ok);
+}
+
+void HTTPServer::retornarTimeline(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
+    log(request.body());
+    std::string jsonString = VariableManager::getInstance()->jsonToString(VariableManager::getInstance()->jsonTimeline);
+    response.send(Http::Code::Ok, jsonString);
 }

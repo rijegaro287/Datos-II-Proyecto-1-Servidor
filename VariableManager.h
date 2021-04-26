@@ -33,7 +33,7 @@ public:
         static std::string createVariable(std::string jsonString);
         std::string returnVariableValue(std::string);
         std::string createStruct(std::string);
-        std::string assignAddress(std::string jsonString);
+        static std::string assignAddress(std::string jsonString);
         static std::string dereferencePointer(std::string jsonString);
         std::string updateScopes(std::string scope);
 
@@ -51,11 +51,15 @@ public:
 
     void endRun();
 
-    void *spaceForPrimitiveData(std::string jsonString);
+//    static void *spaceForPrimitiveData(std::string jsonString);
 
-    void *spaceForPrimitiveData(Json::Value jsonObject);
+    static void *spaceForPrimitiveData(Json::Value jsonObject);
 
     std::string getStructAttribute(std::string jsonString);
+
+    static void timeline();
+
+    static Json::Value jsonTimeline;
 };
 
 

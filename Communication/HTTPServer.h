@@ -81,4 +81,6 @@ private:
     void returnAddress(const Rest::Request &request, Http::ResponseWriter response);
 
     void finalizarEjecucion(const Rest::Request &request, Http::ResponseWriter response);
+
+    void retornarTimeline(const Rest::Request &request, Http::ResponseWriter response);
 };

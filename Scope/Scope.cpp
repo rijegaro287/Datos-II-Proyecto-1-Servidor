@@ -232,7 +232,6 @@ void Scope::addPointer(void *ptr, std::string dataType, std::string name, std::s
     newNode->setDataType(dataType);
     newNode->setVariableName(name);
     newNode->setPointerType(pointerType);
-    newNode->increaseCount();
     newNode->setNext(nullptr);
     if (length == 0) {
         head = newNode;
@@ -259,6 +258,10 @@ bool Scope::inn(std::string name){
     }else {
         return false;
     }
+}
+
+Node *Scope::getHead() const {
+    return head;
 }
 
 

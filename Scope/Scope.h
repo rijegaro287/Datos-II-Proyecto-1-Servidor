@@ -35,6 +35,10 @@ public:
     void checkReferenceCount();
 
     bool inn(std::string name);
+
+    Node *getHead() const;
+
+    Json::Value timeline();
 };
 
 

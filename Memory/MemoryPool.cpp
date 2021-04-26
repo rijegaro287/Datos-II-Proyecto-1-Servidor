@@ -32,7 +32,7 @@
 
         // Allcate del big memory block
         AllocateMemory(MemoryPoolSize);
-        std::cout<<"Servidor eschuchando el puerto: " <<2580 << " Espacio en memeoria creado: "<< std::to_string((int) MemoryPoolSize) << std::endl;
+//        std::cout<<"Servidor eschuchando el puerto: " <<9999 << " Espacio en memeoria creado: "<< std::to_string((int) MemoryPoolSize) << std::endl;
     }
 
     MemoryPool::~MemoryPool()
