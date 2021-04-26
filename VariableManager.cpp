@@ -423,7 +423,6 @@ std::string VariableManager::returnAddress(std::string jsonString) {
 void VariableManager::endRun() {
     if (scopes.size() > 1){
         perror("Scope Error, más de un scope al final del programa");
-        return "Scope Error, más de un scope al final del programa";
     }
     Json::Value jsonObject = mainScope->freeAllMemory();
     checkReferenceCount();

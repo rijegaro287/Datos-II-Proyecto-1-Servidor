@@ -25,6 +25,13 @@ private:
     void start();
     void setupRoutes();
     /**
+     * @brief conexionInicial Ruta para verificar la conexion entre el cliente y el servidor.
+     * @param request
+     * @param response
+     */
+    void conexionInicial(const Rest::Request &request, Pistache::Http::ResponseWriter response);
+
+    /**
      * @brief crearVariable Ruta para crear variables de datos primitivos y  referencias.
      * @param request
      * @param response

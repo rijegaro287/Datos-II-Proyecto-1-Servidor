@@ -24,6 +24,7 @@ void HTTPServer::setupRoutes() { // -> Agrega las rutas para los servicios
     // -> Escucha por una petición de tipo POST en http://localhost:port/crearVariable
     // -> Rest::Routes::bind indica la función que se llama para encargarse de la petición
     HTTPServer::router.addRoute(Http::Method::Post, "/crearVariable", Rest::Routes::bind(&HTTPServer::crearVariable, this));
+    HTTPServer::router.addRoute(Http::Method::Post, "/conexionInicial", Rest::Routes::bind(&HTTPServer::conexionInicial, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/actualizarValorVariable", Rest::Routes::bind(&HTTPServer::actualizarValorVariable, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/createStruct", Rest::Routes::bind(&HTTPServer::crearStruct, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/devolverVariable", Rest::Routes::bind(&HTTPServer::devolverVariable, this));
@@ -33,6 +34,11 @@ void HTTPServer::setupRoutes() { // -> Agrega las rutas para los servicios
             &HTTPServer::desreferenciarPuntero, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/actualizarScopes", Rest::Routes::bind(&HTTPServer::actualizarScopes, this));
     HTTPServer::router.addRoute(Http::Method::Post, "/finalizarEjecucion", Rest::Routes::bind(&HTTPServer::finalizarEjecucion, this));
+}
+
+void HTTPServer::conexionInicial(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
+    log(request.body());
+    response.send(Http::Code::Ok, "Conexion establecida correctamente");
 }
 
 void HTTPServer::crearVariable(const Rest::Request &request, Pistache::Http::ResponseWriter response) {
